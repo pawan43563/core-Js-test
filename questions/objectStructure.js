@@ -38,6 +38,18 @@
 
 const getObjectStructure = (obj) => {
   // write code here
+  if(typeof obj==="undefined"){
+    throw new Error("Invalid Input")
+  }
+  for(var key in obj){
+    if(typeof obj[key]==="object"){
+        getObjectStructure(obj[key])
+    }else{
+        obj[key]=typeof obj[key]
+    }
+}
+return obj
+
 };
 
 // donot remove this line
